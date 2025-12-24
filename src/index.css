@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 8%;
+    --foreground: 40 30% 95%;
+
+    --card: 220 18% 12%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 220 18% 12%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 38 90% 55%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 40 30% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 38 80% 45%;
+    --accent-foreground: 40 30% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 38 90% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --gold: 38 90% 55%;
+    --gold-light: 40 85% 65%;
+    --gold-dark: 35 85% 40%;
+    --dark-surface: 220 18% 14%;
+    --dark-surface-hover: 220 18% 18%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38, 90%, 55%) 0%, hsl(40, 85%, 65%) 50%, hsl(35, 85%, 45%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220, 20%, 8%) 0%, hsl(220, 18%, 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220, 18%, 14%) 0%, hsl(220, 18%, 10%) 100%);
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(38, 90%, 55%, 0.2);
+    --shadow-card: 0 8px 32px hsl(0, 0%, 0%, 0.3);
+
+    --sidebar-background: 220 18% 10%;
+    --sidebar-foreground: 40 30% 95%;
+    --sidebar-primary: 38 90% 55%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 38 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-cairo antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px hsl(38, 90%, 55%, 0.4), 0 0 40px hsl(38, 90%, 55%, 0.2);
+  }
+
+  /* Audio wave animation */
+  @keyframes wave {
+    0%, 100% { height: 8px; }
+    50% { height: 24px; }
+  }
+
+  .audio-wave {
+    animation: wave 1s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Security overlay */
+  .security-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .no-screenshot {
+    -webkit-filter: none;
+    filter: none;
+  }
+}
